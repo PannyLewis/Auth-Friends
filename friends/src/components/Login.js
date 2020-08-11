@@ -1,4 +1,7 @@
 import React from "react";
+// import axios from 'axios';
+
+// we are replacing axios with the axiosWithAuth
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 class Login extends React.Component {
@@ -20,17 +23,17 @@ class Login extends React.Component {
 
   login = (e) => {
     e.preventDefault();
-    axiosWithAuth()
-      .post("/login", this.state.credentials)
+    /*  Make a POST request and send the credtials object to API */
+    axiosWithAuth() // we changed axios with axiosWithAuth()
+      .post("/api/login", this.state.credentials)
       .then((res) => {
-        console.log("bk: login success: res: ", res);
-        localStorage.setItem("authToken", res.data.payload);
+        console.log(res);
+        // token is a eagle13 string
+        window.localStorage.setItem("token", res.data.payload);
+        // navigateteh user to /protect or whatever landing page)
         this.props.history.push("/protected");
       })
-      .catch((err) => {
-        console.error("bk: login failed: err: ", err.message);
-        localStorage.removeItem("authToken");
-      });
+      .catch((err) => console.log(err));
   };
 
   render() {
