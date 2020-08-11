@@ -2,16 +2,16 @@ import React from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import FriendsCards from "./FriendsCards";
 
-// const MySecretFriends = () => {
+// const MydataFriends = () => {
 //   return <div>All my little minions!</div>;
 // };
 
-// export default MySecretFriends;
+// export default MydataFriends;
 
-class MySecretFriends extends React.Component {
+class WelcomeFriends extends React.Component {
   constructor() {
     super();
-    this.state = { secretFriends: [] };
+    this.state = { dataFriends: [] };
   }
 
   componentDidMount() {
@@ -20,7 +20,7 @@ class MySecretFriends extends React.Component {
       .then((response) => {
         console.log(response);
         this.setState({
-          secretFriends: response.data,
+          dataFriends: response.data,
         });
       })
       .catch((err) => console.log(err));
@@ -39,14 +39,13 @@ class MySecretFriends extends React.Component {
         </div>
 
         <div className="friendsCards">
-          <FriendsCards
-            key={this.state.secretFriends.id}
-            secretFriends={this.state.secretFriends}
-          />
+          {this.state.dataFriends.map((friend) => (
+            <FriendsCards key={friend.id} friend={friend} />
+          ))}
         </div>
       </div>
     );
   }
 }
 
-export default MySecretFriends;
+export default WelcomeFriends;

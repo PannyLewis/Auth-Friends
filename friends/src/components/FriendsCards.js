@@ -5,7 +5,7 @@ const StyledDiv = styled.div`
   border: 1px solid black;
   border-radius: 6px;
   background-color: lightblue;
-  font-size: 1.8rem;
+  font-size: 2 rem;
   width: 50%;
   margin: 2.5% auto;
 `;
@@ -13,8 +13,10 @@ const StyledDiv = styled.div`
 const FriendsCards = (props) => {
   return (
     <div className="FriendsCards">
-      <StyledDiv key={props.secretFriends.id}>
-        <h3>{props.secretFriends.name}</h3>
+      <StyledDiv>
+        <h3>{`Name: ${props.friend.name}`}</h3>
+        <h3>{`Age: ${props.friend.age}`}</h3>
+        <h3>{`Email:  ${props.friend.email}`}</h3>
       </StyledDiv>
     </div>
   );
