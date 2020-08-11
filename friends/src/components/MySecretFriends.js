@@ -15,7 +15,12 @@ class MySecretFriends extends React.Component {
   }
 
   componentDidMount() {
-    axios.get().then().catch();
+    axios
+      .get("/api/friends")
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
