@@ -30,7 +30,9 @@ class MySecretFriends extends React.Component {
           </ol>
         </div>
 
-        <FriendsCards />
+        <div className="friendsCards">
+          <FriendsCards />
+        </div>
       </div>
     );
   }
