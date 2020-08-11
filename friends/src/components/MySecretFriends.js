@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 import FriendsCards from "./FriendsCards";
 
 // const MySecretFriends = () => {
@@ -11,14 +11,17 @@ import FriendsCards from "./FriendsCards";
 class MySecretFriends extends React.Component {
   constructor() {
     super();
-    this.state = { name: "", age: "", email: "" };
+    this.state = { secretFriends: [] };
   }
 
   componentDidMount() {
-    axios
+    axiosWithAuth()
       .get("/api/friends")
       .then((response) => {
         console.log(response);
+        this.setState({
+          secretFriends: response.data,
+        });
       })
       .catch((err) => console.log(err));
   }
@@ -28,15 +31,18 @@ class MySecretFriends extends React.Component {
       <div className="friendsPage">
         <div className="header">
           <h1>Welcome Friends</h1>
-          <ol>
-            <li>Friends</li>
-            <li>Add Friends</li>
-            <li>Log out</li>
-          </ol>
+          <nav>
+            <a>Friends</a>
+            <a>Add Friends</a>
+            <a>Log out</a>
+          </nav>
         </div>
 
         <div className="friendsCards">
-          <FriendsCards />
+          <FriendsCards
+            key={this.state.secretFriends.id}
+            secretFriends={this.state.secretFriends}
+          />
         </div>
       </div>
     );
