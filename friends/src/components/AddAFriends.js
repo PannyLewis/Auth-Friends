@@ -21,7 +21,7 @@ const AddAFriend = (props) => {
       .then((res) => console.log(res.data))
       .catch((err) => console.log("post error", err));
     setTimeout(() => {
-      props.history.push("/FriendsCards");
+      props.history.push("/AllMyFriends");
     }, 2000);
   };
 
