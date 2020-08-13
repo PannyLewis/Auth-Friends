@@ -31,7 +31,7 @@ class Login extends React.Component {
         // token is a eagle13 string
         window.localStorage.setItem("token", res.data.payload);
         // navigateteh user to /protect or whatever landing page)
-        this.props.history.push("/protected");
+        this.props.history.push("/WelcomeFriends");
       })
       .catch((err) => console.log(err));
   };

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const AddAFriend = (props) => {
@@ -21,7 +20,7 @@ const AddAFriend = (props) => {
       .then((res) => console.log(res.data))
       .catch((err) => console.log("post error", err));
     setTimeout(() => {
-      props.history.push("/AllMyFriends");
+      props.history.push("/WelcomeFriends");
     }, 2000);
   };
 

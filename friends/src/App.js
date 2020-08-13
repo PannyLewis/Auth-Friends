@@ -1,7 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute";
 import styled from "styled-components";
-import LoginForm from "./components/LoginForm";
+import Login from "./components/Login";
+import WelcomeFriends from "./components/WelcomeFriends";
+import AddAFriend from "./components/AddAFriend";
+import LogOut from "./components/LogOut";
 
 const StyleDiv = styled.div`
   display: flex;
@@ -16,13 +20,17 @@ function App() {
       <StyleDiv className="navbar">
         <h1>Friends of A Feather</h1>
         <nav>
-          {/* <a href="/login">Login</a> */}
-
           <Link to="/login">Login</Link>
+          <Link to="/LogOut">Log out</Link>
+          <Link to="/AddAFriend">Add A Friend</Link>
+          <Link to="/WelcomeFriends">Welcome Friends</Link>
         </nav>
       </StyleDiv>
       <Switch>
-        <Route path="/login" component={LoginForm} />
+        <Route path="/login" component={Login} />
+        <PrivateRoute exact path="/LogOut" component={LogOut} />
+        <PrivateRoute exact path="/AddAFriend" component={AddAFriend} />
+        <PrivateRoute exact path="/WelcomeFriends" component={WelcomeFriends} />
       </Switch>
     </div>
 
