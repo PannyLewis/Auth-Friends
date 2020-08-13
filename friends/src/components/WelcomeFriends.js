@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 import AllMyFriends from "./AllMyFriends";
@@ -38,21 +39,21 @@ class WelcomeFriends extends React.Component {
             <h2>Welcome Fair Weathered Friends</h2>
             <nav>
               <Link to="/AllMyFriends">All My Friends</Link>
-              <Link to="/Add A Friends">Add A Friend</Link>
-              <Link to="/Log Out">Log out</Link>
+              <Link to="/AddAFriends">Add A Friend</Link>
+              <Link to="/LogOut">Log out</Link>
             </nav>
           </div>
 
-          <div className="friendsCards">
-            <Switch>
-              {this.state.dataFriends.map((friend) => (
-                <AllMyFriends key={friend.id} friend={friend} />
-              ))}
+          <Switch>
+            <PrivateRoute exact path="/AllMyFriends" component={AllMyFriends} />
+            <PrivateRoute exact path="/AddAFriends" component={AddAFriends} />
+            <PrivateRoute exact path="/LogOut" component={LogOut} />
+          </Switch>
 
-              <Route path="/AllMyFriends" component={AllMyFriends} />
-              <Route path="/Add A Friends" component={AddAFriends} />
-              <Route path="/Log Out" component={LogOut} />
-            </Switch>
+          <div className="friendsCards">
+            {this.state.dataFriends.map((friend) => (
+              <AllMyFriends key={friend.id} friend={friend} />
+            ))}
           </div>
         </div>
       </Router>

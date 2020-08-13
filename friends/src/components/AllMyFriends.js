@@ -6,10 +6,9 @@ const AllMyFriends = (props) => {
   return (
     <Router>
       <div>
-        <h1>hey there minions</h1>
-        <Switch>
-          <FriendsCards key={props.friend.id} friend={props.friend} />
-        </Switch>
+        {/* <h1>hey there minions</h1> */}
+
+        <FriendsCards key={props.friend.id} friend={props.friend} />
       </div>
     </Router>
   );
