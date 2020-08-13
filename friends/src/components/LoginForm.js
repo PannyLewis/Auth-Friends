@@ -8,13 +8,6 @@ const LoginForm = () => {
   return (
     <Router>
       <div className="loginform">
-        {/* <h1>Friends of a Feather</h1>
-        <ul>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul> */}
-
         <Switch>
           <Route path="/login" component={Login} />
           <PrivateRoute exact path="/protected" component={WelcomeFriends} />

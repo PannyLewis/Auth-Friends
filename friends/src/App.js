@@ -12,14 +12,21 @@ const StyleDiv = styled.div`
 
 function App() {
   return (
-    <StyleDiv className="navbar">
-      <h1>Friends of A Feather</h1>
-      <nav>
-        {/* <a href="/login">Login</a> */}
+    <div>
+      <StyleDiv className="navbar">
+        <h1>Friends of A Feather</h1>
+        <nav>
+          {/* <a href="/login">Login</a> */}
 
-        <Link to="/login">Login</Link>
-      </nav>
-    </StyleDiv>
+          <Link to="/login">Login</Link>
+        </nav>
+      </StyleDiv>
+      <Switch>
+        <Route path="/login" component={LoginForm} />
+      </Switch>
+    </div>
+
+    // Switch hides the path until the link is clicked just a light switch
 
     // <Router>
     //   <div className="App">
