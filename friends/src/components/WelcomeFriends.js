@@ -49,6 +49,7 @@ class WelcomeFriends extends React.Component {
                 <AllMyFriends key={friend.id} friend={friend} />
               ))}
 
+              <Route path="/AllMyFriends" component={AllMyFriends} />
               <Route path="/Add A Friends" component={AddAFriends} />
               <Route path="/Log Out" component={LogOut} />
             </Switch>
