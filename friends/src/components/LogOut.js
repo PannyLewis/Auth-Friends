@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 const LogOut = () => {
   return (
     <div>
-      <h1>hey there minions</h1>
+      <h1>friends to the end</h1>
     </div>
   );
 };

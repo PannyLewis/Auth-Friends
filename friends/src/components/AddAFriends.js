@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 const AddAFriend = () => {
   return (
     <div>
-      <h1>hey there minions</h1>
+      <h1>a friend in need is a friend indeed</h1>
     </div>
   );
 };
